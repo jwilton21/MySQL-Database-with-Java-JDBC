@@ -4,7 +4,7 @@ import java.sql.*;
 public class JdbcInsertDemo {
 	// Throwing SQLException if user/pw/database info is incorrect.
 	public static void main(String[] args) throws SQLException {
-		// Initialise database strings- connection, statement, resultSet.
+		// Initialise database objects- connection, statement, resultSet.
 		Connection myConn = null;
 		Statement myStmt =  null;
 		ResultSet myRs = null;
@@ -22,7 +22,11 @@ public class JdbcInsertDemo {
 			myStmt = myConn.createStatement();
 
 			// Insert a new employee.
-			System.out.println("Insert a new employee to the database\n.");
+			System.out.println("Insert a new employee to the database\n");
+
+			// Print out employee information before we do an update.
+
+			displayEmployee(myConn,"Anna","Jones");
 
 			// SQL insert into employees table.
 			int rowsAffected = myStmt.executeUpdate(
@@ -41,7 +45,7 @@ public class JdbcInsertDemo {
 			}
 		}
 		// If exception thrown, pass to here and print stack trace if unsuccessful. 
-		
+
 		// Should not reach here if connection/details are correct.
 		catch (Exception e) 
 		{
@@ -55,6 +59,13 @@ public class JdbcInsertDemo {
 		}
 
 	}
-
+	// Helper method which will print out the record before the update.
+	private static void displayEmployee(Connection myConn, String string, String string2) 
+	{
+		System.out.println("Before update: \n");
+	}
+	
+	// TO DO-- Helper method which will de-dupe records. Too many runs we add dupes.
+	//private static void deDupeRecords()
 
 }
