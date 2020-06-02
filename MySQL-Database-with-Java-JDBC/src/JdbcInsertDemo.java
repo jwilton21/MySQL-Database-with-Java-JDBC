@@ -41,6 +41,7 @@ public class JdbcInsertDemo {
 			}
 		}
 		// If exception thrown, pass to here and print stack trace if unsuccessful. 
+		
 		// Should not reach here if connection/details are correct.
 		catch (Exception e) 
 		{
