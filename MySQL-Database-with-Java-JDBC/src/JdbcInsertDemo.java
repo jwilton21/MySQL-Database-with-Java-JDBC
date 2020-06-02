@@ -24,16 +24,15 @@ public class JdbcInsertDemo {
 			// Insert a new employee.
 			System.out.println("Insert a new employee to the database\n");
 
-			// Print out employee information before we do an update.
 
-			displayEmployee(myConn,"Anna","Jones");
-
-			// SQL insert into employees table.
+			// Update employee table with new record.
 			int rowsAffected = myStmt.executeUpdate(
 					"insert into employees " +
 							"(last_name, first_name, email, department, salary) " +
 							"values " +
 					"('Jones', 'Anna', 'anna.jones@foo.com', 'Legal',28000.00)");
+
+
 
 			// Verify this was done- get list of employees with select all from.
 
@@ -59,12 +58,7 @@ public class JdbcInsertDemo {
 		}
 
 	}
-	// Helper method which will print out the record before the update.
-	private static void displayEmployee(Connection myConn, String string, String string2) 
-	{
-		System.out.println("Before update: \n");
-	}
-	
+
 	// TO DO-- Helper method which will de-dupe records. Too many runs we add dupes.
 	//private static void deDupeRecords()
 
