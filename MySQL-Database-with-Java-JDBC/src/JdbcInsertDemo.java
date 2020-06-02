@@ -35,7 +35,7 @@ public class JdbcInsertDemo {
 
 			myRs = myStmt.executeQuery("select * from employees order by last_name");
 
-			// Process results set. Print out
+			// Process results set.
 			while(myRs.next()) {
 				System.out.println(myRs.getString("last_name")+","+myRs.getString("first_name"));
 			}
