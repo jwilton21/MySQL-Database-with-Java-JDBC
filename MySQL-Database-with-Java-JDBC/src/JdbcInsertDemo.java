@@ -13,7 +13,7 @@ public class JdbcInsertDemo {
 		String dbUrl = "jdbc:mysql://localhost:3306/demo";
 		String user = "student";
 		String pass = "student";
-
+		// Try to connect.
 		try {
 			// Connect to database.
 			myConn = DriverManager.getConnection(dbUrl, user, pass);
