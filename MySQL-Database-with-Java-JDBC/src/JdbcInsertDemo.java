@@ -35,7 +35,7 @@ public class JdbcInsertDemo {
 
 			myRs = myStmt.executeQuery("select * from employees order by last_name");
 
-			// Process results set.
+			// Process results set. While result set has next record, print it out.
 			while (myRs.next()) {
 				System.out.println(myRs.getString("last_name") + "," + myRs.getString("first_name"));
 			}
@@ -48,6 +48,7 @@ public class JdbcInsertDemo {
 			e.printStackTrace();
 		} finally {
 			if (myRs != null) {
+				// Close result set object.
 				myRs.close();
 			}
 		}
