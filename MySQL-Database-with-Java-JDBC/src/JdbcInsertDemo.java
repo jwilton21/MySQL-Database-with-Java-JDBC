@@ -51,20 +51,21 @@ public class JdbcInsertDemo {
 				myRs.close();
 			}
 		}
+		// Print out deleted records.
 		System.out.println("Number of rows deleted: " + deleteFromEmployees(0, myStmt));
 
 	}
 
 	// Use to delete record from database.
 	public static int deleteFromEmployees(int rowsAffected, Statement myStmt) {
-		try {
+		try {	// Assign rows deleted.
 			rowsAffected = myStmt
 					.executeUpdate("delete from employees " + "where last_name='Jones' and first_name='Anna'");
 		} catch (SQLException e) {
 			// If exception thrown then print stack trace.
 			e.printStackTrace();
 
-		}
+		}// Return number of deleted records back to main.
 		return rowsAffected;
 	}
 }
