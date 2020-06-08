@@ -3,9 +3,11 @@
 import java.sql.*;
 
 // demo database.
-public class JdbcInsertDemo {
+public class JdbcInsertDemo
+{
 	// Throwing SQLException if user/pw/database info is incorrect.
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException
+	{
 		// Initialise database objects- connection, statement, resultSet.
 		Connection myConn = null;
 		Statement myStmt = null;
@@ -16,7 +18,8 @@ public class JdbcInsertDemo {
 		String user = "student";
 		String pass = "student";
 		// Try to connect.
-		try {
+		try
+		{
 			// Connect to database.
 			myConn = DriverManager.getConnection(dbUrl, user, pass);
 
@@ -36,7 +39,8 @@ public class JdbcInsertDemo {
 			myRs = myStmt.executeQuery("select * from employees order by last_name");
 
 			// Process results set. While result set has next record, print it out.
-			while (myRs.next()) {
+			while (myRs.next())
+			{
 				System.out.println(myRs.getString("last_name") + "," + myRs.getString("first_name"));
 			}
 
@@ -44,10 +48,13 @@ public class JdbcInsertDemo {
 		// If exception thrown, pass to here and print stack trace if unsuccessful.
 
 		// Should not reach here if connection/details are correct.
-		catch (Exception e) {
+		catch (Exception e)
+		{
 			e.printStackTrace();
-		} finally {
-			if (myRs != null) {
+		} finally
+		{
+			if (myRs != null)
+			{
 				// Close result set object.
 				myRs.close();
 			}
@@ -58,15 +65,21 @@ public class JdbcInsertDemo {
 	}
 
 	// Use to delete record from database.
-	public static int deleteFromEmployees(int rowsAffected, Statement myStmt) {
-		try {	// Assign rows deleted.
+	public static int deleteFromEmployees(int rowsAffected, Statement myStmt)
+	{
+		try
+		{ // Assign rows deleted.
 			rowsAffected = myStmt
 					.executeUpdate("delete from employees " + "where last_name='Jones' and first_name='Anna'");
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			// If exception thrown then print stack trace.
 			e.printStackTrace();
 
-		}// Return number of deleted records back to main.
+		} // Return number of deleted records back to main.
 		return rowsAffected;
+
+		// Get connection for database.
+
 	}
 }
