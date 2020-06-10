@@ -5,6 +5,41 @@ import java.sql.*;
 // demo database.
 public class JdbcInsertDemo
 {
+	//Assign database connection strings.
+	static String dbUrl = "jdbc:mysql://localhost:3306/demo";
+	public static String getDbUrl()
+	{
+		return dbUrl;
+	}
+
+	public static void setDbUrl(String dbUrl)
+	{
+		JdbcInsertDemo.dbUrl = dbUrl;
+	}
+
+	protected static String getUser()
+	{
+		return user;
+	}
+
+	protected static void setUser(String user)
+	{
+		JdbcInsertDemo.user = user;
+	}
+
+	protected static String getPass()
+	{
+		return pass;
+	}
+
+	protected static void setPass(String pass)
+	{
+		JdbcInsertDemo.pass = pass;
+	}
+
+	static String user = "student";
+	static String pass = "student";
+
 	// Throwing SQLException if user/pw/database info is incorrect.
 	public static void main(String[] args) throws SQLException
 	{
@@ -13,10 +48,6 @@ public class JdbcInsertDemo
 		Statement myStmt = null;
 		ResultSet myRs = null;
 
-		// Assign database connection strings.
-		String dbUrl = "jdbc:mysql://localhost:3306/demo";
-		String user = "student";
-		String pass = "student";
 		// Try to connect.
 		try
 		{
