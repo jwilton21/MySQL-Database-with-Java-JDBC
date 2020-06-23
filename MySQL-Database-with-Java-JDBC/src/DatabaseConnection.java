@@ -60,7 +60,7 @@ public class DatabaseConnection
 
 
 	}
-
+	// Method to close db connection objects.
 	private static void close(Connection myConn, Statement myStmt, ResultSet myRs) throws SQLException
 	{	
 		if(myRs !=null) 
